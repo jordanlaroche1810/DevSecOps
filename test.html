@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page vulnérable</title>
+    </head>
+    <body>
+        <h1>Page vulnérable à la faille XSS</h1>
 
+        <div>
+            <h2>Commentaire :</h2>
+            <p id="commentaire"></p>
+        </div>
+
+        <script>
+            // Récupération du paramètre "comment" de l'URL
+            const urlParams = new URLSearchParams(window.location.search);
+            const comment = urlParams.get('comment');
+
+            // Affichage du commentaire sur la page
+            document.getElementById('commentaire').innerHTML = comment;
+        </script>
+    </body>
+</html>
